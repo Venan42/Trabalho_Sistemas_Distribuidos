@@ -1,5 +1,3 @@
-# Código do cliente
-# Código do cliente
 import socket, os, sys, time
 import pyperclip
 from dotenv import load_dotenv
