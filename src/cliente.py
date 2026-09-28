@@ -11,6 +11,8 @@ INTERVALO_VERIFICACAO = 0.5
 
 
 def enviar_tamanho_e_dados(conexao, texto):
+    """Envia primeiro 4 bytes com o tamanho da mensagem, depois a mensagem em si.
+    Espelha o receber_tamanho_e_dados do servidor."""
     dados = texto.encode("utf-8")
     tamanho = len(dados)
     conexao.sendall(tamanho.to_bytes(4, byteorder="big"))
@@ -36,7 +38,7 @@ def conectar():
 
 def monitorar_area_de_transferencia(conexao):
     print("Monitorando a área de transferência (Ctrl+C).")
-    print("Pressione Ctrl+C no TERMINAL (não na área de transferência) para encerrar a sessão.\n")
+    print("Pressione Ctrl+C no terminak (não na área de transferência) para encerrar a sessão.\n")
 
     ultimo_texto = pyperclip.paste()
 
