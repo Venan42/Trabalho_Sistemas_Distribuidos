@@ -7,12 +7,10 @@ load_dotenv()
 host = os.environ.get("IP_SERVIDOR", "127.0.0.1")
 porta = int(os.environ.get("PORTA", 9870))
 
-INTERVALO_VERIFICACAO = 0.5  # segundos entre checagens da área de transferência
+INTERVALO_VERIFICACAO = 0.5
 
 
 def enviar_tamanho_e_dados(conexao, texto):
-    """Envia primeiro 4 bytes com o tamanho da mensagem, depois a mensagem em si.
-    Espelha o receber_tamanho_e_dados do servidor."""
     dados = texto.encode("utf-8")
     tamanho = len(dados)
     conexao.sendall(tamanho.to_bytes(4, byteorder="big"))
